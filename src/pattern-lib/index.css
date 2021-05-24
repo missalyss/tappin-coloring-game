@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: nordica, Geneva, Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--blue);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "nordica";
+  src: url(../fonts/NordicaClassicLtExt.otf)format("opentype");
+}

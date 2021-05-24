@@ -1,0 +1,108 @@
+:root {
+  --soft-black: #2d2d2d;
+  --blue: #5a6a91;
+  --dark-blue: #475270;
+  --cream: #f5f5f5;
+  --red: #932A24;
+}
+
+.App {
+  text-align: center;
+  background: var(--blue);
+}
+
+.text-soft-black {
+  color: var(--soft-black);
+}
+
+.bg-soft-black {
+  background-color: var(--soft-black);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+.bg-blue {
+  background-color: var(--blue)
+}
+
+.text-red {
+  color: var(--red);
+}
+.bg-red {
+  background-color: var(--red)
+}
+
+.text-dark-blue {
+  color: var(--dark-blue);
+}
+.bg-dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.text-cream {
+  color: var(--cream);
+}
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.md-font {
+  font-size: 20px;
+}
+
+.sm-font {
+  font-size: 16px;
+}
+
+.xs-font {
+  font-size: 12px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
