@@ -10,15 +10,27 @@ const Canvas = () => {
   }, [])
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    canvas.addEventListener('mousemove', function (event) {
-      var ctx = canvas.getContext('2d');
-      var x = event.layerX;
-      var y = event.layerY;
+    const erase = (e) => {
+      const ctx = canvas.getContext('2d');
+      const x = e.layerX;
+      const y = e.layerY;
       ctx.clearRect(x, y, 20, 20)
+      ctx.clearRect(x, y, -20, 20)
+      ctx.clearRect(x, y, 20, -20)
+      ctx.clearRect(x, y, -20, -20)
+
+    }
+    const canvas = canvasRef.current
+    canvas.addEventListener('mousemove', (e) => {
+      erase(e)
+    })
+
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault()
+      erase(e)
     });
   })
-  return (<canvas ref={canvasRef} height={window.innerHeight} width={window.innerWidth}></canvas>);
+  return (<canvas ref={canvasRef} height={window.innerHeight - 86} width={window.innerWidth}></canvas>);
 }
 
 
