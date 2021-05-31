@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-const Canvas = ({ currentColor }) => {
+const Canvas = ({ currentColor, currentText }) => {
   const canvasRef = useRef(null)
   useEffect(() => {
     const canvas = canvasRef.current
@@ -10,7 +10,7 @@ const Canvas = ({ currentColor }) => {
   }, [])
 
   useEffect(() => {
-    const draw = ({ e, canvas }) => {
+    const drawRect = ({ e, canvas }) => {
       const ctx = canvas.getContext('2d');
       ctx.beginPath()
       const x = e.layerX;
@@ -22,16 +22,27 @@ const Canvas = ({ currentColor }) => {
       ctx.fillRect(x, y, -10, -10)
     }
 
+    const drawText = ({ e, canvas }) => {
+      const ctx = canvas.getContext('2d');
+      ctx.beginPath()
+      const x = e.layerX;
+      const y = e.layerY;
+      console.log({ currentText });
+      ctx.fillStyle = currentColor;
+      ctx.font = '24px helvetica'
+      ctx.fillText(currentText, x, y)
+    }
+
     const canvas = canvasRef.current
 
     if (canvas) {
       canvas.addEventListener('mousemove', (e) => {
-        draw({ e, canvas })
+        drawRect({ e, canvas })
       })
 
       canvas.addEventListener('touchmove', (e) => {
         e.preventDefault()
-        draw({ e, canvas })
+        drawRect({ e, canvas })
       });
     }
   })

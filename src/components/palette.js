@@ -1,9 +1,10 @@
 import React from 'react';
 import './styles/palette.css';
 
-const Palette = ({ setCurrentColor, currentColor }) => {
+const Palette = ({ setCurrentColor, currentColor, setCurrentText, currentText }) => {
   return (
     <div className="pallet">
+      <button className="refresh" onClick={() => window.location.reload()}>🔄</button>
       <div style={{ backgroundColor: currentColor }} className="currentColor"></div>
       <input type="color" id="color-picker" name="color-picker" />
       <div onClick={() => setCurrentColor('red')} className="color red"></div>
@@ -17,6 +18,7 @@ const Palette = ({ setCurrentColor, currentColor }) => {
       <div onClick={() => setCurrentColor('brown')} className="color brown"></div>
       <div onClick={() => setCurrentColor('black')} className="color black"></div>
       <div onClick={() => setCurrentColor('white')} className="color white"></div>
+      <input id="drawText" type="text" onChange={(e) => setCurrentText(e.target.value)} value={currentText} />
     </div>
   );
 }
