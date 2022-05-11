@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import './styles/canvas.css';
 
 const Canvas = ({ currentColor, currentText }) => {
   const canvasRef = useRef(null)
@@ -47,9 +48,7 @@ const Canvas = ({ currentColor, currentText }) => {
     }
   })
 
-
-
-  return (<canvas ref={canvasRef} height={window.innerHeight - 86} width={window.innerWidth}></canvas>);
+  return (<canvas className="canvas" ref={canvasRef} height={window.innerHeight - 86} width={window.innerWidth}></canvas>);
 }
 
 

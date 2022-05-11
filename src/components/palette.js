@@ -18,7 +18,7 @@ const Palette = ({ setCurrentColor, currentColor, setCurrentText, currentText })
       <div onClick={() => setCurrentColor('brown')} className="color brown"></div>
       <div onClick={() => setCurrentColor('black')} className="color black"></div>
       <div onClick={() => setCurrentColor('white')} className="color white"></div>
-      <input id="drawText" type="text" onChange={(e) => setCurrentText(e.target.value)} value={currentText} />
+      <input id="drawText" className="drawText" type="text" onChange={(e) => setCurrentText(e.target.value)} value={currentText} />
     </div>
   );
 }
