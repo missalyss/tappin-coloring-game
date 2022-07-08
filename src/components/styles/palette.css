@@ -22,18 +22,21 @@
 
 .currentColor {
   position: relative;
-  border: 3px solid black;
+  box-shadow:  2px 2px 1px #000000;
   margin-right: 10px;
   margin-bottom: 10px;
   height: 50px;
   width: inherit;
+  border-radius: 10%;
 }
 
-.color {
+.swatch {
   position: relative;
-  border: .5px solid black;
-  height: 25px;
+  box-shadow:  1.5px 1px 1px #000000;
+  height: 35px;
   width: inherit;
+  border-radius: 10%;
+  margin: 2px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -44,37 +47,6 @@
 
 .invisible {
   visibility: hidden;
-}
-
-.red {
-  background-color: red;
-}
-.orange {
-  background-color: orange;
-}
-.yellow {
-  background-color: yellow;
-}
-.green {
-  background-color: green;
-}
-.blue {
-  background-color: blue;
-}
-.purple {
-  background-color: purple;
-}
-.brown {
-  background-color: brown;
-}
-.black {
-  background-color: black;
-}
-.white {
-  background-color: white;
-}
-.pink {
-  background-color: pink;
 }
 
 .text-center {

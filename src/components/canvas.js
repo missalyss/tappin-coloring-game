@@ -1,52 +1,42 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import './styles/canvas.css';
+import { colorMap, handleDraw } from './util';
+
+
 
 const Canvas = ({ currentColor, currentText }) => {
-  const canvasRef = useRef(null)
+  const [canvas, setCanvas] = useState();
+  const [ctx, setCtx] = useState();
+console.log('cur: ', currentColor);
+  const canvasRef = useCallback((canvasDomEl) => {
+    if (canvasDomEl !== null) {
+      setCanvas(canvasDomEl);
+      setCtx(canvasDomEl.getContext('2d'));
+    }
+  }, []);
+
   useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    ctx.fillStyle = '#ffffff'
+    if (canvas && ctx) {
+    ctx.fillStyle = '#f1f1f1'
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-  }, [])
+    }}, [canvas] )
 
-  useEffect(() => {
-    const drawRect = ({ e, canvas }) => {
-      const ctx = canvas.getContext('2d');
-      ctx.beginPath()
-      const x = e.layerX;
-      const y = e.layerY;
-      ctx.fillStyle = currentColor;
-      ctx.fillRect(x, y, 10, 10)
-      ctx.fillRect(x, y, -10, 10)
-      ctx.fillRect(x, y, 10, -10)
-      ctx.fillRect(x, y, -10, -10)
+    useEffect(() => {
+    if (canvas && ctx) {
+      const drawing = (e) => {
+        handleDraw({ e, ctx, currentColor });
+      };
+
+      canvas.addEventListener('pointermove', drawing);
+      canvas.addEventListener('touchmove', drawing);
+      canvas.addEventListener('mousedown', drawing);
+      return () => {
+        canvas.removeEventListener('pointermove', drawing);
+        canvas.removeEventListener('touchmove', drawing);
+        canvas.removeEventListener('mousedown', drawing);
+      };
     }
-
-    const drawText = ({ e, canvas }) => {
-      const ctx = canvas.getContext('2d');
-      ctx.beginPath()
-      const x = e.layerX;
-      const y = e.layerY;
-      console.log({ currentText });
-      ctx.fillStyle = currentColor;
-      ctx.font = '24px helvetica'
-      ctx.fillText(currentText, x, y)
-    }
-
-    const canvas = canvasRef.current
-
-    if (canvas) {
-      canvas.addEventListener('mousemove', (e) => {
-        drawRect({ e, canvas })
-      })
-
-      canvas.addEventListener('touchmove', (e) => {
-        e.preventDefault()
-        drawRect({ e, canvas })
-      });
-    }
-  })
+  }, [canvas, currentColor]);
 
   return (<canvas className="canvas" ref={canvasRef} height={window.innerHeight - 86} width={window.innerWidth}></canvas>);
 }

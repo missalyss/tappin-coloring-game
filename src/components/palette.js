@@ -1,24 +1,26 @@
 import React from 'react';
 import './styles/palette.css';
+import '../pattern-lib/colors.css'
+import { colorMap } from './util';
 
 const Palette = ({ setCurrentColor, currentColor, setCurrentText, currentText }) => {
   return (
     <div className="pallet">
-      <button className="refresh" onClick={() => window.location.reload()}>🔄</button>
+      <button className="refresh" onClick={() => window.location.reload()}>🗑</button>
       <div style={{ backgroundColor: currentColor }} className="currentColor"></div>
-      <input type="color" id="color-picker" name="color-picker" />
-      <div onClick={() => setCurrentColor('red')} className="color red"></div>
+      <div onClick={() => setCurrentColor(colorMap.red)} className="swatch bg-red"></div>
+      <div onClick={() => setCurrentColor(colorMap.orange)} className="swatch bg-orange"></div>
+      <div onClick={() => setCurrentColor(colorMap.yellow)} className="swatch bg-yellow"></div>
+      <div onClick={() => setCurrentColor(colorMap.green)} className="swatch bg-green"></div>
+      <div onClick={() => setCurrentColor(colorMap.blue)} className="swatch bg-blue"></div>
+      <div onClick={() => setCurrentColor(colorMap.purple)} className="swatch bg-purple"></div>
+      <div onClick={() => setCurrentColor(colorMap.pink)} className="swatch bg-pink"></div>
+      <div onClick={() => setCurrentColor(colorMap.white)} className="swatch bg-white"></div>
+      <div onClick={() => setCurrentColor(colorMap.black)} className="swatch bg-black"></div>
 
-      <div onClick={() => setCurrentColor('orange')} className="color orange"></div>
-      <div onClick={() => setCurrentColor('yellow')} className="color yellow"></div>
-      <div onClick={() => setCurrentColor('green')} className="color green"></div>
-      <div onClick={() => setCurrentColor('blue')} className="color blue"></div>
-      <div onClick={() => setCurrentColor('purple')} className="color purple"></div>
-      <div onClick={() => setCurrentColor('pink')} className="color pink"></div>
-      <div onClick={() => setCurrentColor('brown')} className="color brown"></div>
-      <div onClick={() => setCurrentColor('black')} className="color black"></div>
-      <div onClick={() => setCurrentColor('white')} className="color white"></div>
-      <input id="drawText" className="drawText" type="text" onChange={(e) => setCurrentText(e.target.value)} value={currentText} />
+      {/* <input type="color" id="color-picker" name="color-picker" /> */}
+      {/* <div onClick={() => setCurrentColor('brown')} className="swatch bg-brown"></div> */}
+      {/* <input id="drawText" className="drawText" type="text" onChange={(e) => setCurrentText(e.target.value)} value={currentText} /> */}
     </div>
   );
 }
