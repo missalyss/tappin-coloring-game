@@ -7,11 +7,12 @@ const Root = () => {
   const randomIndex = randomizer(colorArray.length)
   const randomHex = Object.values(colorMap)[randomIndex]
   const [currentColor, setCurrentColor] = useState(randomHex)
-  const [currentText, setCurrentText] = useState('😉')
+  const [darkMode, setDarkMode] = useState(false)
+
   return (
     <React.Fragment>
-      <Palette setCurrentColor={setCurrentColor} currentColor={currentColor} setCurrentText={setCurrentText} currentText={currentText} />
-      <Canvas currentText={currentText} currentColor={currentColor} />
+      <Palette setCurrentColor={setCurrentColor} currentColor={currentColor} setDarkMode={setDarkMode} darkMode={darkMode} />
+      <Canvas darkMode={darkMode} currentColor={currentColor} />
     </React.Fragment>
   )
 }

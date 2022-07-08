@@ -4,10 +4,10 @@ import { colorMap, handleDraw } from './util';
 
 
 
-const Canvas = ({ currentColor, currentText }) => {
+const Canvas = ({ currentColor, darkMode }) => {
   const [canvas, setCanvas] = useState();
   const [ctx, setCtx] = useState();
-console.log('cur: ', currentColor);
+console.log('DARK: ', darkMode);
   const canvasRef = useCallback((canvasDomEl) => {
     if (canvasDomEl !== null) {
       setCanvas(canvasDomEl);
@@ -17,9 +17,11 @@ console.log('cur: ', currentColor);
 
   useEffect(() => {
     if (canvas && ctx) {
-    ctx.fillStyle = '#f1f1f1'
+    ctx.fillStyle = darkMode ? '#000000' : '#f1f1f1' // for unusual composite
+    // ctx.fillStyle = '#ffffff'
+
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    }}, [canvas] )
+    }}, [canvas, darkMode] )
 
     useEffect(() => {
     if (canvas && ctx) {
@@ -38,7 +40,7 @@ console.log('cur: ', currentColor);
     }
   }, [canvas, currentColor]);
 
-  return (<canvas className="canvas" ref={canvasRef} height={window.innerHeight - 86} width={window.innerWidth}></canvas>);
+  return (<canvas className="canvas" ref={canvasRef} height={window.innerHeight - 60} width={window.innerWidth}></canvas>);
 }
 
 

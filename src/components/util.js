@@ -35,17 +35,18 @@ export  const handleDraw = ({ e, ctx, currentColor }) => {
   ctx.fillStyle = currentColor;
   // ctx.globalCompositeOperation = 'color-burn'; //zipper? nowhite!
   // ctx.globalCompositeOperation = 'multiply'; // colors spread out nowhite!
-  // ctx.globalCompositeOperation = 'difference'; // noblack!
+
+  ctx.globalCompositeOperation = 'difference'; // noblack! //zaniest with darkmode
 
 
-  // ctx.globalCompositeOperation = 'xor'; //zany best!
+  // ctx.globalCompositeOperation = 'xor'; //zany no layer
   // ctx.globalCompositeOperation = 'soft-light'; //spraypain zany layers! allcolor
   // ctx.globalCompositeOperation = 'overlay'; //spraypaint layers weird allcolor
 
 
 
 
-  ctx.arc(x, y, 20, 0, Math.PI * 2, false);
+  ctx.arc(x, y, 15, 0, Math.PI * 2, false);
   ctx.fill();
   ctx.closePath();
 

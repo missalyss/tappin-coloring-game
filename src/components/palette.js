@@ -3,10 +3,12 @@ import './styles/palette.css';
 import '../pattern-lib/colors.css'
 import { colorMap } from './util';
 
-const Palette = ({ setCurrentColor, currentColor, setCurrentText, currentText }) => {
+const Palette = ({ setCurrentColor, currentColor, setDarkMode, darkMode }) => {
   return (
     <div className="pallet">
-      <button className="refresh" onClick={() => window.location.reload()}>🗑</button>
+      <button className="button" onClick={() => window.location.reload()}>🗑</button>
+      <button className="button" onClick={() => setDarkMode(!darkMode)}>{darkMode ? '☀️' : '🌙'}</button>
+
       <div style={{ backgroundColor: currentColor }} className="currentColor"></div>
       <div onClick={() => setCurrentColor(colorMap.red)} className="swatch bg-red"></div>
       <div onClick={() => setCurrentColor(colorMap.orange)} className="swatch bg-orange"></div>
