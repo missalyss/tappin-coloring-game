@@ -5,7 +5,7 @@ yellow: '#F7EC09',
 green: '#3EC70B',
 blue: '#3B44F6',
 purple: '#A149FA',
-black: '#000000',
+// black: '#000000',
 pink: '#FF008E',
 white: '#FFFFFF',
 }
@@ -17,7 +17,7 @@ export const colorArray = [
   {green: '#3EC70B'},
   {blue: '#3B44F6'},
   {purple: '#A149FA'},
-  {black: '#000000'},
+  // {black: '#000000'},
   {pink: '#FF008E'},
   {white: '#FFFFFF'},
 ]

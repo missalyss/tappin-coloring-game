@@ -7,7 +7,6 @@ const Palette = ({ setCurrentColor, currentColor, setDarkMode, darkMode }) => {
   return (
     <div className="pallet">
       <button className="button" onClick={() => window.location.reload()}>🗑</button>
-      <button className="button" onClick={() => setDarkMode(!darkMode)}>{darkMode ? '☀️' : '🌙'}</button>
 
       <div style={{ backgroundColor: currentColor }} className="currentColor"></div>
       <div onClick={() => setCurrentColor(colorMap.red)} className="swatch bg-red"></div>
@@ -18,7 +17,8 @@ const Palette = ({ setCurrentColor, currentColor, setDarkMode, darkMode }) => {
       <div onClick={() => setCurrentColor(colorMap.purple)} className="swatch bg-purple"></div>
       <div onClick={() => setCurrentColor(colorMap.pink)} className="swatch bg-pink"></div>
       <div onClick={() => setCurrentColor(colorMap.white)} className="swatch bg-white"></div>
-      <div onClick={() => setCurrentColor(colorMap.black)} className="swatch bg-black"></div>
+      {/* <div onClick={() => setCurrentColor(colorMap.black)} className="swatch bg-black"></div> */}
+      <button className="button" onClick={() => setDarkMode(!darkMode)}>{darkMode ? '☀️' : '🌙'}</button>
 
       {/* <input type="color" id="color-picker" name="color-picker" /> */}
       {/* <div onClick={() => setCurrentColor('brown')} className="swatch bg-brown"></div> */}
