@@ -28,17 +28,19 @@ export const randomizer = (num) => {
 }
 
 export  const handleDraw = ({ e, ctx, currentColor }) => {
+  e.preventDefault();
   ctx.beginPath()
   const x = e.layerX;
   const y = e.layerY;
   ctx.fillStyle = currentColor;
-  // ctx.globalCompositeOperation = 'color-burn'; //zipper? nowhite
-  // ctx.globalCompositeOperation = 'overlay'; //spraypaint layers weird
-  // ctx.globalCompositeOperation = 'multiply'; // colors spread out nowhite
+  // ctx.globalCompositeOperation = 'color-burn'; //zipper? nowhite!
+  // ctx.globalCompositeOperation = 'multiply'; // colors spread out nowhite!
+  // ctx.globalCompositeOperation = 'difference'; // noblack!
 
-  ctx.globalCompositeOperation = 'xor'; //zany best!
-  // ctx.globalCompositeOperation = 'exclusion'; //sim to difference lower contrast
-  // ctx.globalCompositeOperation = 'soft-light'; //spraypain layers weird allcolor
+
+  // ctx.globalCompositeOperation = 'xor'; //zany best!
+  // ctx.globalCompositeOperation = 'soft-light'; //spraypain zany layers! allcolor
+  // ctx.globalCompositeOperation = 'overlay'; //spraypaint layers weird allcolor
 
 
 
