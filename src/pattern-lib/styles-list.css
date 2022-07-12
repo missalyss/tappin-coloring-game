@@ -1,50 +1,6 @@
-:root {
-  --soft-black: #2d2d2d;
-  --blue: #5a6a91;
-  --dark-blue: #475270;
-  --cream: #f5f5f5;
-  --red: #932A24;
-}
-
 .App {
   text-align: center;
-  background: var(--blue);
-}
-
-.text-soft-black {
-  color: var(--soft-black);
-}
-
-.bg-soft-black {
-  background-color: var(--soft-black);
-}
-
-.text-blue {
-  color: var(--blue);
-}
-.bg-blue {
-  background-color: var(--blue)
-}
-
-.text-red {
-  color: var(--red);
-}
-.bg-red {
-  background-color: var(--red)
-}
-
-.text-dark-blue {
-  color: var(--dark-blue);
-}
-.bg-dark-blue {
-  background-color: var(--dark-blue);
-}
-
-.text-cream {
-  color: var(--cream);
-}
-.bg-cream {
-  background-color: var(--cream);
+  background: #FFFFFF;
 }
 
 .md-font {
@@ -99,10 +55,18 @@
   height: 100%;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .relative {
   position: relative;
 }
 
 .absolute {
   position: absolute;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
