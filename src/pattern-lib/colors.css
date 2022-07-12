@@ -1,55 +1,67 @@
+:root {
+  --red: #FF1700;
+  --orange: #FF8E00;
+  --yellow: #F7EC09;
+  --green: #3EC70B;
+  --blue: #3B44F6;
+  --purple: #A149FA;
+  --pink: #FF008E;
+  --black: #000000;
+  --white: #FFFFFF;
+}
+
 .bg-red {
-  background-color: #FF1700;
+  background-color: var(--red);
 }
 .bg-orange {
-  background-color: #FF8E00;
+  background-color: var(--orange);
 }
 .bg-yellow {
-  background-color: #F7EC09;
+  background-color: var(--yellow);
 }
 .bg-green {
-  background-color: #3EC70B;
+  background-color: var(--green);
 }
 .bg-blue {
-  background-color: #3B44F6;
+  background-color: var(--blue);
 }
 .bg-purple {
-  background-color: #A149FA;
-}
-.bg-black {
-  background-color: #000000;
-}
-.bg-white {
-  background-color: #FFFFFF;
+  background-color: var(--purple);
 }
 .bg-pink {
-  background-color: #FF008E;
+  background-color: var(--pink);
+}
+.bg-black {
+  background-color: var(--black);
+}
+.bg-white {
+  background-color: var(--white);
 }
 
 .red {
-  color: #FF1700;
+  color: var(--red);
 }
 .orange {
-  color: #FF8E00;
+  color: var(--orange);
 }
 .yellow {
-  color: #F7EC09;
+  color: var(--yellow);
 }
 .green {
-  color: #3EC70B;
+  color: var(--green);
 }
 .blue {
-  color: #3B44F6;
+  color: var(--blue);
 }
 .purple {
-  color: #A149FA;
+  color: var(--purple);
 }
 .black {
-  color: #000000;
+  color: var(--black);
 }
 .white {
-  color: #FFFFFF;
+  color: var(--white);
 }
 .pink {
-  color: #FF008E;
+  color: var(--pink);
 }

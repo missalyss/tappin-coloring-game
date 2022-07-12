@@ -3,12 +3,13 @@ import './styles/palette.css';
 import '../pattern-lib/colors.css'
 import { colorMap } from './util';
 
-const Palette = ({ setCurrentColor, currentColor, setDarkMode, darkMode }) => {
+const Palette = ({ className, setCurrentColor, currentColor, setDarkMode, darkMode, setZanyMode, zanyMode }) => {
+  console.log('zany: ', zanyMode);
   return (
-    <div className="pallet">
+    <div className={`${className ?? ''} pallet`}>
       <button className="button" onClick={() => window.location.reload()}>🗑</button>
 
-      <div style={{ backgroundColor: currentColor }} className="currentColor"></div>
+      {/* <div style={{ backgroundColor: currentColor }} className="currentColor"></div> */}
       <div onClick={() => setCurrentColor(colorMap.red)} className="swatch bg-red"></div>
       <div onClick={() => setCurrentColor(colorMap.orange)} className="swatch bg-orange"></div>
       <div onClick={() => setCurrentColor(colorMap.yellow)} className="swatch bg-yellow"></div>
@@ -19,6 +20,7 @@ const Palette = ({ setCurrentColor, currentColor, setDarkMode, darkMode }) => {
       <div onClick={() => setCurrentColor(colorMap.white)} className="swatch bg-white"></div>
       {/* <div onClick={() => setCurrentColor(colorMap.black)} className="swatch bg-black"></div> */}
       <button className="button" onClick={() => setDarkMode(!darkMode)}>{darkMode ? '☀️' : '🌙'}</button>
+      <button className={`button ${zanyMode ? 'highlight' : ''}`} onClick={() => setZanyMode(!zanyMode)}>🤪</button>
 
       {/* <input type="color" id="color-picker" name="color-picker" /> */}
       {/* <div onClick={() => setCurrentColor('brown')} className="swatch bg-brown"></div> */}

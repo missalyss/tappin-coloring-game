@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Palette from './palette';
 import Canvas from './canvas';
+import Drawer from './drawer';
 import { randomizer, colorArray, colorMap } from './util';
 
 const Root = () => {
@@ -8,11 +8,13 @@ const Root = () => {
   const randomHex = Object.values(colorMap)[randomIndex]
   const [currentColor, setCurrentColor] = useState(randomHex)
   const [darkMode, setDarkMode] = useState(false)
+  const [zanyMode, setZanyMode] = useState(false)
+
 
   return (
     <React.Fragment>
-      <Palette setCurrentColor={setCurrentColor} currentColor={currentColor} setDarkMode={setDarkMode} darkMode={darkMode} />
-      <Canvas darkMode={darkMode} currentColor={currentColor} />
+      <Drawer setCurrentColor={setCurrentColor} currentColor={currentColor} setDarkMode={setDarkMode} zanyMode={zanyMode} setZanyMode={setZanyMode} darkMode={darkMode} />
+      <Canvas darkMode={darkMode} zanyMode={zanyMode} currentColor={currentColor} />
     </React.Fragment>
   )
 }

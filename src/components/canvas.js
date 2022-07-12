@@ -1,13 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import './styles/canvas.css';
-import { colorMap, handleDraw } from './util';
+import { handleDraw } from './util';
 
 
 
-const Canvas = ({ currentColor, darkMode }) => {
+const Canvas = ({ currentColor, darkMode, zanyMode }) => {
   const [canvas, setCanvas] = useState();
   const [ctx, setCtx] = useState();
-console.log('DARK: ', darkMode);
   const canvasRef = useCallback((canvasDomEl) => {
     if (canvasDomEl !== null) {
       setCanvas(canvasDomEl);
@@ -26,22 +25,34 @@ console.log('DARK: ', darkMode);
     useEffect(() => {
     if (canvas && ctx) {
       const drawing = (e) => {
+        // other composite notes below
+        ctx.globalCompositeOperation = zanyMode ? "difference" : "source-over"; // diff = noblack! zaniest with darkmode
+
+        ctx.fillStyle = currentColor;
         handleDraw({ e, ctx, currentColor });
       };
 
       canvas.addEventListener('pointermove', drawing);
       canvas.addEventListener('touchmove', drawing);
       canvas.addEventListener('mousedown', drawing);
-      return () => {
-        canvas.removeEventListener('pointermove', drawing);
-        canvas.removeEventListener('touchmove', drawing);
-        canvas.removeEventListener('mousedown', drawing);
-      };
     }
-  }, [canvas, currentColor]);
+  }, [canvas, currentColor, zanyMode]);
 
-  return (<canvas className="canvas" ref={canvasRef} height={window.innerHeight - 60} width={window.innerWidth}></canvas>);
+  return (<canvas className="canvas" ref={canvasRef} height={window.innerHeight} width={window.innerWidth}></canvas>);
 }
 
 
 export default Canvas;
+
+
+// ctx.globalCompositeOperation = 'color-burn'; //zipper? nowhite!
+
+// ctx.globalCompositeOperation = 'multiply'; // colors spread out nowhite!
+
+// ctx.globalCompositeOperation = "difference"; // noblack! //zaniest with darkmode
+
+// ctx.globalCompositeOperation = 'xor'; //zany no layer
+
+// ctx.globalCompositeOperation = 'soft-light'; //spraypain zany layers! allcolor
+
+// ctx.globalCompositeOperation = 'overlay'; //spraypaint layers weird allcolor
